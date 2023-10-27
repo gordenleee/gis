@@ -1,0 +1,2 @@
+Report_Card_Assessment_Data_2018-19_School_Year_20231022.csv filter=lfs diff=lfs merge=lfs -text
+*.tif filter=lfs diff=lfs merge=lfs -text
