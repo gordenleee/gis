@@ -11,18 +11,18 @@ library(ggplot2)
 Read in data
 
 ```{r}
-spain <- sf::st_read(here("homework_3", "gadm41_ESP.gpkg"),
+spain <- sf::st_read(here("Data", "gadm41_ESP.gpkg"),
                       layer='ADM_ADM_0')
 
-layers <- st_layers(here("homework_3", "gadm41_ESP.gpkg"))
+layers <- st_layers(here("Data", "gadm41_ESP.gpkg"))
 
-world_cities <- sf::st_read(here("homework_3", "World_Cities", "World_cities.shp"))
+world_cities <- sf::st_read(here("Data", "World_Cities", "World_cities.shp"))
 
-ssp1 <-terra::rast(here("homework_3", "wc2.1_2.5m_tmax_ACCESS-CM2_ssp126_2021-2040.tif"))
+ssp1 <-terra::rast(here("Data", "wc2.1_2.5m_tmax_ACCESS-CM2_ssp126_2021-2040.tif"))
 
 ssp1_mean <- mean(ssp1)
 
-ssp5 <-terra::rast(here("homework_3", "wc2.1_2.5m_tmax_ACCESS-CM2_ssp585_2021-2040.tif"))
+ssp5 <-terra::rast(here("Data", "wc2.1_2.5m_tmax_ACCESS-CM2_ssp585_2021-2040.tif"))
 
 ```
 
@@ -163,10 +163,10 @@ How about taking each climate scenario and plotting the distribution of max temp
 
 ####### extra analysis####when i assumed it was just a single year not months
 
-ssp1 <-terra::rast(here("homework_3", "wc2.1_2.5m_tmax_ACCESS-CM2_ssp126_2021-2040.tif"))
-ssp2 <-terra::rast(here("homework_3", "wc2.1_2.5m_tmax_ACCESS-CM2_ssp245_2021-2040.tif"))
-ssp3 <-terra::rast(here("homework_3", "wc2.1_2.5m_tmax_ACCESS-CM2_ssp370_2021-2040.tif"))
-ssp5 <-terra::rast(here("homework_3", "wc2.1_2.5m_tmax_ACCESS-CM2_ssp585_2021-2040.tif"))
+ssp1 <-terra::rast(here("Data", "wc2.1_2.5m_tmax_ACCESS-CM2_ssp126_2021-2040.tif"))
+ssp2 <-terra::rast(here("Data", "wc2.1_2.5m_tmax_ACCESS-CM2_ssp245_2021-2040.tif"))
+ssp3 <-terra::rast(here("Data", "wc2.1_2.5m_tmax_ACCESS-CM2_ssp370_2021-2040.tif"))
+ssp5 <-terra::rast(here("Data", "wc2.1_2.5m_tmax_ACCESS-CM2_ssp585_2021-2040.tif"))
 
 ssp1mean <- ssp1 %>%
   terra::crop(.,spain)%>%
