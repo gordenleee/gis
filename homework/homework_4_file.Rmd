@@ -13,14 +13,14 @@ library(tidyverse)
 library(sf)
 library(here)
 library(janitor)
-#library(countrycode)
+library(countrycode)
 ```
 
 ```{r}
-HDI <- read_csv(here::here("homework_4", "HDR21-22_Composite_indices_complete_time_series.csv"),
+HDI <- read_csv(here::here("Data", "HDR21-22_Composite_indices_complete_time_series.csv"),
                        locale = locale(encoding = "latin1"),
                        na = " ", skip=0)
-World <- st_read("homework_4/World_Countries_(Generalized)/World_Countries__Generalized_.shp")
+World <- st_read("../Data/World_Countries_Generalized/World_Countries_Generalized.shp")
 ```
 
 ## Column names
@@ -42,7 +42,6 @@ HDIcols<- HDI %>%
   #not needed here as we can now use the country name...but see below
   mutate(iso_code=countrycode(country, origin = 'country.name', destination = 'iso2c'))%>%
   mutate(iso_code2=countrycode(iso3, origin ='iso3c', destination = 'iso2c'))
-
   
 ```
 
